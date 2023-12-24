@@ -1,0 +1,58 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coercion</title>
+</head>
+<body>
+  <p>Coercion</p>
+
+  <script type="text/javascript">
+      /*
+        Operators and functions automatically convert the values given to them to the right type.
+        There are also cases when we need to explicitly convert a value to the expected type.
+          String conversions
+          Numeric conversions
+          Boolean conversions
+
+      */
+
+      /* String: convert value to string
+        - String(xxx)
+        - xxx.toString()
+      */
+      var isOpen = true;
+      // console.log('String coericon: ', typeof String(isOpen))
+      console.log('String coericon: ', typeof isOpen.toString())
+
+
+      /* Number: convert value to number
+      Numeric conversion in mathematical functions and expressions happens automatically.
+      Convert a value to a number
+      If the string is not a valid number, the result of such a conversion is NaN (not a number).
+      */
+
+      var number = '312321312a';
+      if(typeof Number(number) === 'number' && Number(number) === NaN) {
+        console.log('String coericon: ',  Number(number))
+      }
+
+      console.log('Number coericon null: ', Number(null))
+      console.log('Number coericon true: ', Number(true))
+      console.log('Number coericon false: ', Number(false))
+      console.log('Number coericon conditional: ', false > 0); // true or false
+
+      /* Boolean: covert value to boolean
+        Occurs in logical operations. Can be performed with Boolean(value)
+          undefined, null
+          Boolean: false
+          Number: 0, NaN = not a number
+          String: ' ' empty
+          all objects are truthy
+      */
+
+      console.log('Boolean coericon false: ', Boolean(0))
+  </script>
+</body>
+</html>

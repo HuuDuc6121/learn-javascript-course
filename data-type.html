@@ -1,0 +1,65 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Data Type</title>
+</head>
+<body>
+  <p>Data Type</p>
+
+  <script type="text/javascript">
+    /*
+    Primitive Values.
+      Boolean: true/false
+      Number: 1, 2, 10, 4, ….
+      String: 'abc', '123', 'true', 'false' …
+      Null
+      Undefined
+      Symbol (ES2015)
+    Objects.
+      Object: {name: ‘John’, age: 30}
+      Array: [1,2,3]
+
+    Note: You can’t define your own primitive types.
+    */
+
+    // typeof: using to check data type
+
+    console.log('boolean: ', typeof true)
+    console.log('object: ', { name: 'tony' })
+    console.log('array: ', [1,2,3,4]);
+    console.log('string: ', typeof 'adasdsa')
+
+
+    // immutable: not change default variables when excute a action
+    // mutable: change direct default variables
+    var todos = [
+      { firstName: 'tony' },
+      { firstName: 'nam anh' }
+    ];
+
+    // actions
+    function changeName() {
+      // block scope
+      var newTodos = JSON.parse(JSON.stringify(todos)); // cloned todos
+      newTodos[0].firstName = 'anh';
+
+      return newTodos;
+    }
+    var afterTodo = changeName();
+
+    function getNameTony() {
+      return todos[0].firstName; // tony
+    }
+    var getNameTony = getNameTony();
+
+    console.log('default todos: ', todos)
+    console.log('after immutable: ', afterTodo)
+    console.log('getNameTony: ', getNameTony)
+
+    
+
+  </script>
+</body>
+</html>

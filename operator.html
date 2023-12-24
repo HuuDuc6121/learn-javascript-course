@@ -1,0 +1,53 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Dperator</title>
+</head>
+<body>
+  <p>Operator</p>
+
+  <script type="text/javascript">
+    // assigment
+    var x = 123;
+    x = 456; // assigment
+
+
+    console.log('assigment: ', x);
+
+
+    /* logical
+      && - return true if both expression are true, otherwise it returns false
+        if side left is true, return value side right.
+        if side left is false, return value side left.
+      || - return the first truthy value.
+      !  - return true for false statements and false for true statements.
+      !! - return value negative of !
+      ?? - return the first defined value
+    */
+
+    // && 
+    console.log('operator &&: ', '123' && '123'); // Boolean('abc') && '123' => true && '123' => '123'
+
+    // ||
+    console.log('operator || ', 'abc' || 0); // 'abc'
+
+    // !
+    console.log('operator || ', !true); // -> false
+    console.log('operator || ', !'abc'); // -> !Boolean('abc') -> !true -> false
+    console.log('operator || ', !''); // -> !false -> true
+    console.log('operator || ', !!123); //-> !!true -> !false -> true
+
+    // ?? same ||
+    console.log('operator ||  (null): ', null || '123');
+    console.log('operator ||  (undefined): ', undefined || '123');
+    console.log('operator ||  (0): ', 0 || 'not a found'); // 'not a found'
+
+    console.log('operator ??  (null)', null ?? '123');
+    console.log('operator ??  (undefined)', undefined ?? '123');
+    console.log('operator ??  (0)',  0 ?? 'not a found'); // 0
+
+  </script>
+</body>
+</html>
