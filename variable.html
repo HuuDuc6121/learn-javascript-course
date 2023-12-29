@@ -1,0 +1,91 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>variable</title>
+</head>
+<body>
+  <p>variable</p>
+
+  <script type="text/javascript">
+    /* var
+      The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+      Hoisting.
+      Allow assignment.
+    */
+    sum();
+    function sum() {
+      var a = 10; // local variables
+      console.log('function sum: ', a)
+    }
+    console.log('before var:', number); // undefiend
+    var number = 1; // global variables
+    console.log('after var :', number); // undefiend
+
+   /* let
+      The let statement declares a block-scoped, local variable, optionally initializing it to a value.
+        Allows you to declare variables that are limited to the scope of a block statement, or expression on which it is used.
+        The let does not create properties of the window object when declared globally (in the top-most scope). 
+      Not hoisting.
+      Allow assignment.
+    */
+
+    let name = 'tony';
+    name = 'nguyen'
+    console.log("let name: ", name)
+
+    /* const
+      The const statement declares a block-scoped local variable.
+      Not hoisting.
+      Not assignment.
+    */
+    const email = 'tony@gmail.com';
+    // email = 'nguyen@gmail.com';
+    console.log("const email: ", email);
+
+    // pure function
+    const y = 10;
+    function divide2(a) {
+      return a * y / 2
+    }
+
+    // traditional function or delacration function
+    function divide3(a) {
+      const abc = a * y / 3
+      return abc
+    }
+
+
+    const numA = 10;
+    const getA = divide2(numA);
+    const getB = divide3(getA);
+
+    function getMonthAnh(month) {
+      let text = '';
+      (month === 1) ? text = 'Jan' :
+      (month === 2) ? text = 'Feb' :
+      (month === 3) ? text = 'March' :
+      (month === 4) ? text = 'April' : 
+      (month === 5) ? text = 'May' :	
+      text = 'Not found';
+      return text;
+    }
+
+    console.log('pure function: ', {
+      y,
+      getA
+    })
+
+    // expresion function:
+    // ko tên, no hositing
+    var expression = function() {
+      return 1 + 2;
+    }
+    console.log('express: ', typeof expression)
+    expression();
+
+
+  </script>
+</body>
+</html>

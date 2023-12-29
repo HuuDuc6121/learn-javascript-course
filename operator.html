@@ -48,6 +48,88 @@
     console.log('operator ??  (undefined)', undefined ?? '123');
     console.log('operator ??  (0)',  0 ?? 'not a found'); // 0
 
+    /* ==
+    If the operands are of different types, try to convert them to the same type before comparing:
+      When comparing a number to a string, try to convert the string to a numeric value.
+      If one of the operands is Boolean, convert the Boolean operand to 1 if it is true and +0 if it is false.
+      If one of the operands is an object and the other is a number or a string, try to convert the object to a primitive using the object's valueOf() and toString() methods.
+    */
+
+    console.log("number with string: ", 1 == 'abc') // 1 == Number('abc') -> 1 == NaN
+    console.log("number with boolean: ", 0 == true) // 0 == Number(true) -> 0 == 1
+    console.log("any with boolean: ", '1' == true) // '1' == 1 -> Number('1') == 1 -> 1 == 1 -> true
+    console.log("0 with null: ", 0 == null) // '1' == 1 -> Number('1') == 1 -> 1 == 1 -> true
+    console.log("0 with null: ", 'pack' == true) // 'pack' = 1 => 
+
+
+    // ternary
+    function getMonthAnh(month) {
+      var text = '';
+      (month === 1) ? text = 'Jan' :
+      (month === 2) ? text = 'Feb' :
+      (month === 3) ? text = 'March' :
+      (month === 4) ? text = 'April' : 
+      (month === 5) ? text = 'May' :	
+      text = 'Not found';
+      return text;
+    }
+   
+    function getMonthDuc(month) {
+      return month === 1 ? 'Jan'
+            : month === 2 ? 'Feb'
+            : month === 3 ? 'March'
+            : month === 4 ? 'April'
+            : month === 5 ? 'May'
+            : 'Not found'
+    }
+
+   // function
+   function getMonth(month) {
+    var text = '';
+    if(month === 1) {
+      text = 'Jan'
+      // return 'Jan';
+    } else if (month === 2) {
+      text = 'Feb'
+      // return 'Feb';
+    } else if (month === 3) {
+      text = 'March'
+      // return 'March';
+    } else if (month === 4) {
+      text = 'April'
+      // return 'April';
+    } else if (month === 5) {
+      text = 'May'
+      // return 'May';
+    } else {
+      text = 'Not found'
+    } 
+    // return 'July';
+    return text;
+   }
+   const calcMonth = getMonth(10);
+   console.log('calcMonth: ', calcMonth)
+
+    // option 1 function: hàm thực thi tác vụ và nó ko trả về value (void)
+    var x = 10;
+    function sum(a, b) {
+      x = a + b + x;
+    }
+    sum(10, 20);
+    console.log('fuction void: ', x)
+
+     // option 2 function: hàm thực thi và trả về value
+    const y = 10;
+    function sumFunc2(a, b) {
+      return y + a + b;
+    }
+    var abc = sumFunc2(10, 20);
+    console.log('function return value: ', abc)
+
+
+
+
+
   </script>
 </body>
 </html>

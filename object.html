@@ -1,0 +1,146 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>object</title>
+</head>
+<body>
+  <p>object</p>
+
+  <div>
+    <div>
+      <h2>User Count</h2>
+      <div>content</div>
+    </div>
+    <div>
+      <h2>Retention</h2>
+      <div>content</div>
+    </div>
+    <div>
+      <h2>Metric</h2>
+      <div>content</div>
+    </div>
+    <div>
+      <h2>UVLD</h2>
+      <div>content</div>
+    </div>
+    <div>
+      <h2>BCON</h2>
+      <div>content</div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // tham trị
+    console.log("tham trị: ", 1 === 3); // false
+
+    // tham chiếu: nó là so sánh các vùng nhớ vs nhau.
+    const objA = {}; // memory A
+    const objB = {}; // memory B
+    const objC = objA; // memory A
+
+    // assign value for object
+    objC.name = 'tony'
+    console.log("so sanh obj A vs B ", objA === objB ); // false
+    console.log("so sanh obj A vs C ", objA === objC ); // true
+    console.log("// assign value for objectA ", objA);
+    console.log("// assign value for objectC ", objC);
+
+    /*
+    You can access object properties in some ways:
+      objectName.propertyName
+      objectName["propertyName"]
+      object destructuring  // es6
+    */
+
+    const person = {
+      firstName: 'tony',
+      lastName: 'nguyen',
+      age: 18,
+      "month-day": "12/29",
+      "constructor day": 20
+    }
+    const person2 = {
+      firstName: 'truong',
+      lastName: 'nguyen',
+      age: 18,
+      "month-day": "12/29",
+      "constructor day": 20
+    }
+    // const firstName = person.firstName;
+    // console.log('access properties way1: ',firstName);
+    console.log('access properties way2: ', person["month-day"]);
+    console.log('access properties way2: ', person["constructor day"]);
+
+    // destructuring
+    const { firstName } = person;
+    const { firstName: firstName2 } = person2;
+    // const firstName = person.firstName;
+    // const firstName2 = person2.firstName;
+    console.log('access properties destructuring: ', firstName);
+
+    // loop object: for ... in => get key of properties
+    for(const key in person) {
+      console.log('loop object: ', key, person[key]); // loop 1: firstName, person["firstName"]
+    }
+    const groups = {
+      "+User Count": 'user count',
+      "+Retention": 'retention',
+      "+Metric": 'metric',
+      "+UVLD": 'UVLD',
+      "+BCON": "bcon"
+    }
+    for(const key in groups) {
+      console.log('loop groups: ', key, groups[key]); // loop 1: firstName, person["firstName"]
+    }
+
+    // ordered
+    /*
+      User Count,
+      Retention,
+      Metric,
+      UVLD,
+      BCON
+    */
+
+    /* copy object
+      Use the spread (...) syntax -> shallow copy
+      Use the Object.assign() method -> shallow copy
+      Use the JSON.stringify() and JSON.parse() methods -> deep copy
+    */
+    const car = {
+      model: 'honda',
+      year: 2000,
+      firstName: 'city'
+    }
+    const clonedPerson = { ...person, ...car }; // es6 spread object
+    const clonedPErsonEs5 = Object.assign({ course: 'react' }, person, car); // es5
+    const clonedCar = { ...car }; // es6 spread object
+    clonedCar.model = 'toyota'
+
+    const clonedCarJSON = JSON.parse(JSON.stringify(car)); // deep copy
+
+    console.log('clonedPerson: ', clonedPerson)
+    console.log('clonedPErsonEs5: ', clonedPErsonEs5)
+    console.log('so sanh copy : ', car, clonedCar)
+    console.log('so sanh deep copy : ', clonedCarJSON === car);
+
+    const todos = [
+      { id: 1, title: 'react'}, // A
+      { id: 2, title: 'angular'}, // B
+      { id: 3, title: 'javascript'} // C
+    ]
+    const clonedTodo = { ...todos }; // shallow copy (shallow clone)
+    // clonedTodo[0].title = 'vue';
+
+    const deepClonedTodo = JSON.parse(JSON.stringify(todos)); // deep copy
+    deepClonedTodo[0].title = 'vue';
+
+
+    console.log('cloned todo: ', todos, deepClonedTodo)
+
+
+  </script>
+</body>
+</html>

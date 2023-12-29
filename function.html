@@ -1,0 +1,24 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>function</title>
+</head>
+<body>
+  <p>function</p>
+
+  <script type="text/javascript">
+    // default value
+    function getFullName(lastName, firstName = 'tony') {
+      console.log('getFullName: ', firstName, lastName)
+      return firstName + lastName
+    }
+
+    const fullName = getFullName('duc');
+    console.log('default value: ', fullName)
+
+
+  </script>
+</body>
+</html>
