@@ -1,0 +1,74 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>array</title>
+</head>
+<body>
+  <p>array</p>
+
+  <script type="text/javascript">
+    // create array
+    const arr = Array.from(new Array(5), function(_, i){ return i + 10}); // number[]
+    console.log('create array: ', arr)
+
+    for(const index in arr) {
+      console.log('for ... in: ', index)
+    }
+
+    const numberFiltered = arr.filter(item => {
+      return item % 2;
+    })
+    console.log('filter: ', numberFiltered)
+
+    // find: object[]
+    const todos = [
+      {
+        id: 3,
+        title: 'learn javascript'
+      },
+      {
+        id: 2,
+        title: 'learn vue'
+      },
+      {
+        id: 1,
+        title: 'learn react'
+      }
+    ];
+    const idBe = 1;
+    const titleBe = 'truong'
+    // const todoItem = todos.find(item => item.id === idBe); // arrow function
+    const todoItem = todos.find(function(item) {
+      return item.id === idBe && item.title === titleBe;
+    }); // trandional function
+    console.log('find: ', todoItem);
+
+
+    // push: push item in last array
+    const animals = ['pig', 'sheep', 'chicken'];
+    animals.push('lion');
+    animals.push('egg');
+    animals.push('fish');
+    console.log('push: ', animals, animals.length);
+
+    // pop: remove last element in array
+    const lastElement = animals.pop();
+
+    console.log('pop: ', animals, lastElement);
+
+    // shift(): remove first element in array
+    animals.shift();
+    animals.shift();
+
+     // unShift(): add  element in begin array
+    animals.unshift('tiger');
+    animals.unshift('shark')
+    console.log('shift & unshift: ', animals);
+
+
+
+  </script>
+</body>
+</html>

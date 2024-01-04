@@ -140,6 +140,133 @@
 
     console.log('cloned todo: ', todos, deepClonedTodo)
 
+    /* compare object
+      - Referential equality (so sánh tham chiếu)
+      - Manual Comparison
+      - Shallow equality (so sánh nông)
+      - Deep equality (so sánh sâu)
+    */
+    
+    const carA = { // memory A
+      name: 'toyota',
+      year: 1900,
+      model: 'vios',
+      firstName: 'tony'
+    }
+    const carB = { // memory B
+      name: 'toyota',
+      year: 1900,
+      model: 'vios',
+      lastName: 'nguyen',
+      address: {
+        city: 'tphcm'
+      }
+    }
+    const carD = { // memory X
+      name: 'toyota',
+      year: 1900,
+      model: 'vios',
+      lastName: 'nguyen',
+      address: {
+        city: 'tphcm'
+      }
+    }
+    const carC = carA; // memory A
+    // carC.model = 'honda'; // các object cùng tham chiếu sẽ bị mutable khi 1 trong các object thay đổi.
+
+    // Referential equality (so sánh tham chiếu)
+    console.log('Referential equality  carA === carC: ', carA === carC, carA); // true
+    console.log('Referential equality  carA === carB: ', carA === carB); // false
+
+
+    // Manual Comparison (so sánh = cơm )
+    function isEqual(objectA, objectB) {
+      return objectA.name === objectB.name && objectA.year === objectB.year && objectA.model === objectB.model;
+    } 
+    const equalObject = isEqual(carA, carB);
+    console.log('Manual Comparison: ', {
+      equalObject, 
+      carA, 
+      carB
+    })
+
+    // convert object to array: Object.keys -> get key of properties
+    const carAKeys = Object.keys(carA);
+    console.log(" convert object to array: Object.keys: ", carAKeys)
+
+    // Shallow equality (so sánh nông)
+    function isShallowEqual(objA, objB) {
+      const keys1 = Object.keys(objA);
+      const keys2 = Object.keys(objB);
+
+      if(keys1.length !== keys2.length) {
+        return false;
+      }
+
+      for(const key of keys1) {
+        /* loop1: name
+          objA[key] => objA['name'] = toyota
+          objB[key] => objB['name'] = toyota    
+          ...
+          loop3: model
+          objA[key] => objA['model'] = vios
+          objB[key] => objB['model'] = honda    
+          loop4: firstName
+          objA[key] => objA['firstName'] = tony
+          objB[key] => objB['firstName'] = undefiend  
+        */
+        if(objA[key] !== objB[key]) {
+          return false
+        }
+      }
+      return true;
+    }
+
+    const checkShallowEqual = isShallowEqual(carA, carB);
+    console.log("Shallow equality (so sánh nông): ", checkShallowEqual)
+
+    // so sánh nông sẽ ko làm việc vs các nested object. Bởi vì các nested object là so sanh tham chiếu.
+    console.log("Shallow equality (so sánh nông) A vs D: ", isShallowEqual(carA, carD))
+
+
+    // Deep equality (so sánh sâu)
+    const rectangle = {
+      quality: {
+        number: 10,
+      },
+      x: 100,
+    }
+    const square = {
+      quality: {
+        number: 10,
+      },
+      x: 100,
+    }
+    function isObject(value) {
+      return value !== undefined && typeof value === 'object';
+    }
+    function isDeepEqual(objA, objB) {
+      const keys1 = Object.keys(objA);
+      const keys2 = Object.keys(objB);
+
+      if(keys1.length !== keys2.length) {
+        return false;
+      }
+
+      for(const key of keys1) {
+        const valA = objA[key]; // objA[number] => valA = 10
+        const valB = objB[key]; // objB[number] => valB = 10
+        const areObjects = isObject(valA) && isObject(valB);
+        if(areObjects && !isDeepEqual(valA, valB) || !areObjects && valA !== valB) {
+          return false
+        }
+      }
+      return true;
+    }
+
+    const checkDeepEqual = isDeepEqual();
+    console.log("Deep equality (so sánh sâu): ", checkDeepEqual)
+
 
   </script>
 </body>
