@@ -67,6 +67,126 @@
     animals.unshift('shark')
     console.log('shift & unshift: ', animals);
 
+    /* splice
+    The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements. 
+    Syntax:  splice(start, deleteCount, item1, item2, itemN)
+      - start (require): The index at which to start changing the array.
+      - deleteCount (optional): An integer indicating the number of elements in the array to remove from start.
+      - item1, item2 … (optional): The elements to add to the array, beginning from start
+    */
+  
+    const users = [
+      { id: 1, email: 'tony@gmai.com' },
+      { id: 2, email: 'duc@gmai.com' },
+      { id: 3, email: 'anh@gmai.com' }
+    ]
+
+    // install item at index 2
+    users.splice(2, 0, 
+    {
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      email: 'abv@gmail.com'
+    }, {
+      id: Date.now() + Math.floor(Math.random() * 1000),
+      email: '123@gmail.com'
+    })
+
+    // delete 1 item at index 3
+    users.splice(3, 1)
+
+    // replace 1 item at index 1
+    users.splice(1, 1, {
+        id: Date.now() + Math.floor(Math.random() * 1000), 
+        email: 'replace@gmai.com',
+    })
+
+    console.log('array splice: ', users)
+    
+
+    /* indexOf
+    The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+    If you need to find the index of a value, use Array.prototype.indexOf().
+    Syntax:  indexOf(searchElement, fromIndex)
+      searchElement (require): Element to locate in the array.
+      fromIndex (optional): The index to start the search at. 
+    */
+   const nums = [1,2,3,4];
+   const indexOf1 = nums.indexOf(1); // just appy when number[], string[]
+   console.log('indexOf users: ', indexOf1)
+
+    /* filter
+      The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+      Syntax:  filter(ele => { … })
+    */
+
+    // filter user that id % 2
+    const usersFiltered = users.filter(function(user) {
+      console.log(user.id, user.id % 2 === 0)
+      return user.id % 2 === 0;
+    });
+    console.log('filter users % 2: ', usersFiltered)
+
+    // findIndex
+    const userItemId1 = users.findIndex(function(user) {
+      return user.id === 3;
+    })
+    console.log('find index: ', userItemId1)
+
+    // find
+     const userItemFind = users.find(function(user) {
+      return user.id === 3;
+    })
+    console.log('find: ', userItemFind);
+
+
+    // map
+    const metrics = [
+      { 
+        id: Date.now() + Math.floor(Math.random() * 1000),
+        name: 'song',
+        type: 'custom',
+        fixed: true
+      },
+      { 
+        id: Date.now() + Math.floor(Math.random() * 1000),
+        name: 'mtp',
+        type: 'fixed',
+        fixed: true
+      },
+      { 
+        id: Date.now() + Math.floor(Math.random() * 1000),
+        name: 'angular',
+        type: 'default',
+        fixed: false
+      }
+    ];
+    const metricsMap = metrics.map(function(metric) {
+      console.log('metric item: ', metric)
+      return {
+        ...metric, // copy all properties of object
+        type: metric.fixed ? 'fixed' : metric.type, // override type of properties
+        lengthName: metric.name.length
+      }
+    })
+    console.log('map: ', {
+      metrics,
+      metricsMap
+    });
+
+    /*
+      name: 'song',
+      type: fixed <br />
+
+      name: 'mtp',
+      type: fixed <br />
+      
+      name: 'angular',
+      type: default <br />
+
+    */
+
+
+
 
 
   </script>
