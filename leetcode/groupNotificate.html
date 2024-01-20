@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>groupNotification</title>
+</head>
+<body>
+
+    <div id="notifications">
+
+    </div>
+
+    <script type="text/javascript">
+     const notifications = document.getElementById("notifications");
+
+      const dataNotification = [
+        {
+          "email":      "email@example.com",
+          "first_name": "Tony",
+          "last_name":  "Nguyen",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "John",
+          "last_name":  "Doe",
+          "group":   "Collaboration", // | "Collaboration" | "Simulation", 
+          "type":    "info", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Thang",
+          "last_name":  "Doe",
+          // String - define how to group notificat ions in stack
+          "group":   "Simulation", // | "Collaboration" | "Simulation", 
+          "type":    "warning", // "info" | "warning" | "alert" | "success",
+        },
+        {
+          "email":      "email@example.com",
+          "first_name": "Stefan",
+          "last_name":  "Doe",
+          "createdAt": "2020-06-24T07:51:48.659Z",
+          "group":   "Billing", // | "Collaboration" | "Simulation", 
+          "type":    "alert", // "info" | "warning" | "alert" | "success",
+        },
+      ];
+      
+      /* output
+      {
+        "Billing": [
+          {
+            "email":      "email@example.com",
+            "first_name": "Tony",
+            "last_name":  "Nguyen",
+            "group":   "Billing", // | "Collaboration" | "Simulation", 
+            "type":    "warning", // "info" | "warning" | "alert" | "success",
+          },
+          {
+            "email":      "email@example.com",
+            "first_name": "Stefan",
+            "last_name":  "Doe",
+            "createdAt": "2020-06-24T07:51:48.659Z",
+            "group":   "Billing", // | "Collaboration" | "Simulation", 
+            "type":    "alert", // "info" | "warning" | "alert" | "success",
+          },
+        ],
+        "Simulation": [
+          {
+            "email":      "email@example.com",
+            "first_name": "Thang",
+            "last_name":  "Doe",
+            // String - define how to group notificat ions in stack
+            "group":   "Simulation", // | "Collaboration" | "Simulation", 
+            "type":    "warning", // "info" | "warning" | "alert" | "success",
+          },
+        ],
+        "Collaboration": [
+          {
+            "email":      "email@example.com",
+            "first_name": "John",
+            "last_name":  "Doe",
+            "group":   "Collaboration", // | "Collaboration" | "Simulation", 
+            "type":    "info", // "info" | "warning" | "alert" | "success",
+          },
+        ]
+      }
+      */
+    </script>
+
+</body>
+
+
+</html>

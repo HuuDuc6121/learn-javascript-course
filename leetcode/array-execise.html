@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>array-execise</title>
+  </head>
+  <body>
+    <h1 id="dataType">array-execise</h1>
+
+    <script type="text/javascript">
+      // splice
+      const instrument = ['angel', 'clown', 'mandarin', 'sturgeon'];
+
+      /* exercise 1: 
+       - Remove 0 elements before index 2, and insert "drum" and "guitar"
+       - output = ["angel", "clown", "drum", "guitar", "mandarin", "sturgeon"];
+      */
+
+      /* exercise 2: 
+       - Remove 2 elements from index 0, and insert "parrot", "anemone" and "blue"
+       - output = ["parrot", "anemone", "blue", "mandarin", "sturgeon"];
+      */
+
+
+      // fillter
+      const country = [
+        { id: 1, title: 'VN' },
+        { id: 2, title: 'US' },
+        { id: 3, title: 'UK' },
+        { id: 4, title: 'JP' },
+        { id: 5, title: 'CN' },
+      ];
+      /* exercise 1: 
+       - filter country with title not equal 'UK'
+      */
+
+
+      // findIndex
+      const addressVN = [
+        { id: 1, title: 'HCM' },
+        { id: 2, title: 'HN' },
+        { id: 3, title: 'DN' },
+        { id: 4, title: 'HP' },
+        { id: 5, title: 'CT' },
+      ];
+
+      /* exercise 1: 
+        - change title 'HP' => 'Hai Phong'
+      */
+
+      // map
+      const countryMap = [
+        { id: 1, title: 'HCM' },
+        { id: 2, title: 'HN' },
+        { id: 3, title: 'DN' },
+        { id: 4, title: 'HP' },
+        { id: 5, title: 'CT' },
+      ];
+      /* exercise 1:
+        - change all title short hand = full name
+        - show length of title
+        - in ra output2 with title length > 10
+          const output = [
+            { id: 1, title: 'Ho Chi Minh', titleLengh: 12},
+            { id: 2, title: 'Ha Noi', titleLengh: 6},
+            { id: 3, title: 'Da Nang', titleLengh: 8},
+            { id: 4, title: 'Hai Phong', titleLengh: 10},
+            { id: 5, title: 'Can Tho', titleLengh: 8},
+          ]
+          const output2 = [
+            { id: 1, title: 'Ho Chi Minh', titleLengh: 12},
+            { id: 4, title: 'Hai Phong', titleLengh: 10},
+          ]
+      */
+
+      // reducer
+
+      /* exercise 1:
+        - sum all number in array
+        - output = 45
+      */
+      const numbersCount = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+      
+
+      /* exercise 2:
+        - sum total price in cart
+        - output: 10 * 20 + 2 * 15 + 10 * 4 = 270
+      */
+      const products = [
+        { name: 'banana', quality: 10, price: 20 },
+        { name: 'laptop', quality: 2, price: 15 },
+        { name: 'iphone', quality: 10, price: 4 },
+      ];
+
+      /* exercise 3:
+        - count values in objects
+        output
+          {
+            'Truong': 3,
+            'Tony': 1,
+            'Hau': 2
+          }
+      */
+      const identifies = ['Truong', 'Tony', 'Hau', 'Truong', 'Truong', 'Hau'];
+
+     
+      /* exercise 4:  group object by a property
+        {
+          20: [
+            { name: 'Truong', age: 20 },
+            { name: 'Hau', age: 20 },
+          ],
+          32: [
+            { name: 'Tony', age: 32 },
+          ],
+          21: [
+            { name: 'Duy', age: 21 }
+          ]
+        }
+      */
+      const peoples = [
+        { name: 'Truong', age: 20 },
+        { name: 'Hau', age: 20 },
+        { name: 'Tony', age: 32 },
+        { name: 'Duy', age: 21 },
+        { name: 'Duy', age: 20 },
+      ];
+
+
+      /* exercise 4: concat array
+        output:  
+          [
+            'Bible', 'Harry Potter', 'War and peace', 'Romeo and Juliet', 'The Lord of the Rings', 'The Shining'
+          ]
+      */
+      const friends = [
+        {
+          name: 'Anna',
+          books: ['Bible', 'Harry Potter'],
+          age: 21,
+        },
+        {
+          name: 'Bob',
+          books: ['War and peace', 'Romeo and Juliet'],
+          age: 26,
+        },
+        {
+          name: 'Alice',
+          books: ['The Lord of the Rings', 'The Shining'],
+          age: 18,
+        },
+      ];
+    </script>
+  </body>
+</html>
