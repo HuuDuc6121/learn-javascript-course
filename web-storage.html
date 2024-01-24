@@ -1,0 +1,40 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>web-storage</title>
+</head>
+<body>
+  <p>web-storage</p>
+
+  <script type="text/javascript">
+    // 
+    const person = {
+      firstName: 'tony',
+      lastName: 'nguyen'
+    };
+
+    /*
+    HTML web storage provides two objects for storing data on the client:
+      window.localStorage - stores data with no expiration date
+      window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)
+      data must be JSON stringify
+
+      localstorage.setItem(‘key’, value) -> luu tru data vao trong storage
+      localstorage.getItem(‘key’) -> lay data tu` trong storage
+      localstorage.removeItem(‘key’) -> no se remove cai storage chi dinh.
+      localstorage.clear() -> clear all storage.
+      */
+     const user = 'tony nguyen';
+     window.sessionStorage.setItem('user', JSON.stringify(person))
+     
+     const getUser = JSON.parse(window.sessionStorage.getItem('user'));
+
+     console.log('getUser: ', getUser.firstName, typeof getUser)
+
+    
+
+  </script>
+</body>
+</html>

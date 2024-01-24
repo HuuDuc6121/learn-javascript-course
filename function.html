@@ -19,6 +19,23 @@
     console.log('default value: ', fullName)
 
 
+    // callback function
+    function doHomework(subject, callback) {
+      console.log(`Starting my ${subject}`);
+      // if(typeof callback === 'function') {
+      //   callback();
+      // } else {
+      //   ////
+      // }
+      // return early
+      if(typeof callback !== 'function') return;
+      callback();
+    }
+
+    doHomework('math', function() {
+      console.log('end')
+    })
+
   </script>
 </body>
 </html>

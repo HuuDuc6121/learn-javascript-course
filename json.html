@@ -1,0 +1,45 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JSON</title>
+</head>
+<body>
+  <p>JSON</p>
+
+  <script type="text/javascript">
+    // 
+    const person = {
+      firstName: 'tony',
+      lastName: 'nguyen'
+    };
+
+    // BE require body data is JSON stringify
+    const bodyData = JSON.stringify(person);
+
+    const dataFromBE = bodyData;
+
+    // JSON parse
+    const dataParsed = JSON.parse(dataFromBE);
+    console.log('json parsed: ', dataParsed.firstName)
+
+    /* first name: person.firstName */
+
+    // deep clone
+    const todos = [
+      { id: 1, title: 'javascript'},
+      { id: 2, title: 'angular'}
+    ]
+    const clonedTodos = JSON.parse(JSON.stringify(todos)); // deep clone
+    clonedTodos[1].title = 'tony'
+    console.log('shadow clone: ', {
+      todos,
+      clonedTodos
+    })
+
+    
+
+  </script>
+</body>
+</html>

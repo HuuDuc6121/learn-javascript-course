@@ -199,6 +199,105 @@
 
     */
 
+    // sort
+    const numbsSort = [2, 5, 1, 3, 4, 10000, 12000]
+    const numSorted = numbsSort.sort(function (a, b) {
+      if(a > b) return -1;
+      if(a < b) return 1;
+      return 1;
+    });
+
+    console.log('sort: ', numSorted)
+
+    // includes: just work when array is number[], string[]
+    const persons = [
+      { id: 1, name: 'tony' },
+      { id: 2, name: 'nguyen' },
+    ]
+    const isExistedTony = persons.includes('tony')
+    console.log('includes: ', isExistedTony)
+
+    // reducer
+    const total = [5, 20, 10, 2];
+    const totalReduce = total.reduce((acc, curr) => {
+      console.log('acc: ', acc)
+      // return acc + curr
+    }, 0);
+    console.log('reduce: ', totalReduce)
+
+    const carts = [
+      { 
+        product: 'iphone',
+        qty: 10,
+        price: 500
+      },
+      { 
+        product: 'macbook',
+        qty: 2,
+        price: 100
+      },
+      { 
+        product: 'shoes',
+        qty: 3,
+        price: 10
+      }
+    ];
+
+    const totalCarts = carts.reduce((acc, curr) => {
+      acc += curr.qty * curr.price;
+      // 1: 0 += 10 * 500
+      // 2: 5000 += 2 * 100
+      // ....
+      return acc;
+    }, 0)
+    console.log('totalCarts: ', totalCarts)
+
+    const questions = [
+      {
+        name: 'tag div',
+        group: 'html'
+      },
+      {
+        name: 'box model',
+        group: 'css'
+      },
+      {
+        name: 'what is function',
+        group: 'html'
+      },
+    ];
+
+    const questionBoards = questions.reduce((acc, curr) => {
+      console.log('questionBoards: ', acc);
+      if(!acc[curr.group]) {
+        acc[curr.group] = [];
+      }
+      // loop: acc['html'] = { 'html': [], 'css': [] }
+      acc[curr.group].push(curr)
+      /*
+      loop 1: acc['html'] = 
+        { 
+          'html': [
+            {
+            name: 'tag div',
+            group: 'html'
+          },
+          {
+            name: 'what is function',
+            group: 'html'
+          },
+        ],
+          'css': [
+            {
+              name: 'box model',
+              group: 'css'
+            },
+          ] 
+        }
+      */
+      return acc;
+    }, {})
+    console.log("questionBoards reduce: ", questionBoards)
 
 
 

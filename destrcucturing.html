@@ -1,0 +1,89 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>destrcucturing</title>
+</head>
+<body>
+  <p>destrcucturing</p>
+
+  <script type="text/javascript">
+    //
+    const person = {
+      firstName: 'tony',
+      age: 18,
+      book: {
+        author: 'truong.nn',
+        title: 'react codebase',
+        address: {
+          city: 'hcm',
+          ward: 14
+        }
+      }
+    };
+
+    // es5
+    const firstName = 'duc';
+    // const age = person.age;
+    // const title = person.book.title;
+    // const city = person.book.address.city;
+    // const _firstName = person.firstName;
+
+    // es6
+    const {
+      firstName: _firstName, // rename value
+      age,
+      book,
+      book: {
+        title,
+        address: {
+          city
+        }
+      },
+    } = person;
+
+    console.log('destructuring person: ', {
+      age,
+      title,
+      city,
+      book,
+      _firstName
+    });
+
+    // es5
+    // function getPerson(person) {
+    //   const lastName = person.lastName || 'Nguyen';
+    //   console.log('getPerson: ', person.firstName, lastName)
+    // }
+
+    // es6
+    // default value
+    function getPerson({ firstName, lastName = 'Nguyen' }) {
+      console.log('getPerson: ', firstName, lastName)
+    }
+
+    // ignore value (delete item in object)
+    // delete person.firstName; // delete object
+    const { firstName: firstNameV2, ...rest } = person;
+    console.log('ignore value object: ', rest)
+
+    // ignore value with array
+    const fruits = ['banana', 'apple', 'watermelon'];
+    const [, , fruitsC] = fruits;
+    console.log('ignore value array: ', fruitsC)
+    getPerson(person);
+
+    // swap item
+    let source = 1;
+    let destination = 3;
+    [source, destination] = [destination, source]
+    console.log('swap item: ', {
+      source,
+      destination
+    })
+    
+
+  </script>
+</body>
+</html>
