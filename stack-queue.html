@@ -1,0 +1,35 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Stack and Queue</title>
+</head>
+<body>
+  <p>Stack and Queue</p>
+
+  <script type="text/javascript">
+    // stack
+    const numbs = [];
+
+    numbs.push(10);
+    numbs.push(20);
+    numbs.push(30);
+
+    numbs.pop(); // remove item in last array
+
+    console.log("stack number: ", numbs)
+
+    // queue
+    const tickets = [];
+    tickets.unshift(4); // add new item at start array
+    tickets.unshift(50); // add new item at start array
+    tickets.unshift(30); // add new item at start array
+    tickets.unshift(20); // add new item at start array
+
+    tickets.shift()
+
+    console.log("queue ticket: ", tickets)
+  </script>
+</body>
+</html>

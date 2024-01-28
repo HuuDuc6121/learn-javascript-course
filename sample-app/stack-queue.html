@@ -1,0 +1,60 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sample App: Stack and Queue</title>
+</head>
+<body>
+  <p>Sample App: Stack and Queue</p>
+
+  <script type="text/javascript">
+    // apply class javascript
+
+    /* Create Stack 
+      1/ Declare 1 class Stack with a variable items = [];
+      2/ Declare the methods available for our stack:
+        push (element): add a new item to the top.
+        pop (): removes the top item.
+        peek (): only return the top element.
+        isEmpty (): return true if the stack is empty, false if the size bigger than 0.
+        clear (): removes all elements.
+        size() : return the number of elements that the stack contains.
+    */
+
+
+     /* Create Queue 
+      1/ Declare 1 class Queue with a variable items = [];
+      2/ Declare the methods available for our queue:
+        enqueue (element): add a new item at the top of the queue.
+        dequeue (): removes the first element from the queue.
+        front (): returns the first element from the queue.
+        isEmpty (): return true if the queue doesn’t contain any elements, false if the size bigger than 0.
+        clear (): removes all elements.
+        size() : return the number of elements that the queue contains.
+    */
+
+    class Stack {
+      constructor() {
+        this.items = [];
+      }
+      push(number) {
+        this.items.push(number)
+      }
+      print() {
+        return this.items;
+      }
+    }
+
+    const stack = new Stack();
+    stack.push(10)
+    stack.push(2)
+    stack.push(3)
+
+    console.log('stack: ', stack.print())
+
+
+   
+  </script>
+</body>
+</html>

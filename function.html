@@ -9,6 +9,13 @@
   <p>function</p>
 
   <script type="text/javascript">
+    // traditional function
+    // callback function
+    // arrow function
+    // higher order function (HOF)
+    // curry function
+
+
     // default value
     function getFullName(lastName, firstName = 'tony') {
       console.log('getFullName: ', firstName, lastName)
@@ -35,6 +42,143 @@
     doHomework('math', function() {
       console.log('end')
     })
+
+    // traditional function
+    // function xxx() {}
+
+    /*arrow function
+      Syntax: () => {}
+      Arrow functions were introduced in ES6.
+      Arrow function doesn’t this.
+      Arrow function doesn’t bind.
+      Arrow function to anonymous function
+    */
+
+    // console.log('fullNameArrow: ', getFullNameArrow('tony', 'nguyen'))
+    const getFullNameArrow = (firstName, lastName) => {
+      return `${firstName} ${lastName}`
+    }
+
+    const oneArrowParam = age => {
+
+    }
+
+    // return direct body
+    const sum = (a, b, c) => (a + b + c);
+    
+    // const fullNameArrow =;
+    // console.log('fullNameArrow: ', fullNameArrow)
+
+    // return object
+    // const personsArrow = (firstName, lastName) => {
+    //   return {
+    //     firstName,
+    //     lastName
+    //   }
+    // }
+    const personsArrow = (firstName, lastName) => ({
+      firstName,
+      lastName
+    })
+
+     console.log('personsArrow: ', personsArrow('tony', 'nguyen'))
+
+    // this in arrow function
+    const todos = {
+      title: 'learn javascript', // properties
+      id: 1, // properties
+      run: function () {},
+      getTitle: function() { // method
+        return this.title
+      },
+      getId: () => {
+        console.log('this in arrow function', this.id)
+      }
+    };
+
+    console.log('this in traditional function: ', todos.getTitle());
+    todos.getId();
+
+    // curry function
+    // transform function
+    // sum(5)(10)(10) = 15
+
+    // curry format traditional function
+    // function sumCurry(x) {
+    //   return function(y = 0) {
+    //     return function(z = 0) {
+    //       return x + y + z
+    //     }
+    //   }
+    // }
+
+    // curry format arrow function
+    const sumCurry = (x) => (y) => (z) => {
+      return x + y + z
+    }
+    console.log('curry function: ', sumCurry(6)(20)(10))
+
+    // HOF
+    function applyTwice(func, arg) {
+      // func: plus(10) -> NaN
+      // return func(arg)
+
+      // 1. func(arg) -> plus(10) -> 10
+      // 2. func(15) -> plus(15) -> 20
+      return func(func(arg))
+    }
+
+    function plus(x) {
+      console.log("x: ", x)
+      return x + 5;
+    }
+
+    const HOFTwice = applyTwice(plus, 10);
+    console.log('HOF: ', HOFTwice);
+
+
+    // map array
+    const plusNums = [2, 10, 20, 30];
+    const plusTen = x => x + 10;
+    const hofNumbs = plusNums.map(plusTen)
+    console.log('hofNumbs: ', hofNumbs);
+
+    // eg: hof
+    const animals = [
+      { name: 'gau', type: 'dog' },
+      { name: 'at', type: 'fish' },
+      { name: 'meoemeo', type: 'cat' },
+    ];
+    const isDog = animal => animal.type === 'dog'
+    const dogsFilter = animals.filter(isDog)
+    console.log('animal dogs: ', dogsFilter);
+
+    /* Eg: HOF
+      const grades = [
+        {name: 'John', grade: 8, sex: 'M'},
+        {name: 'Sarah', grade: 12, sex: 'F'},
+        {name: 'Bob', grade: 16, sex: 'M'},
+        {name: 'Johnny', grade: 2, sex: 'M'},
+        {name: 'Ethan', grade: 4, sex: 'M'},
+        {name: 'Paula', grade: 18, sex: 'F'},
+        {name: 'Donald', grade: 5, sex: 'M'},
+        {name: 'Jennifer', grade: 13, sex: 'F'},
+        {name: 'Courtney', grade: 15, sex: 'F'},
+        {name: 'Jane', grade: 9, sex: 'F'}
+      ]
+
+      Requiremenet:
+        Tìm thứ hạng trung bình của cả lớp 
+        Tìm thứ hạng trung bình của nam trong lớp 
+        Tìm thứ hạng trung bình của Nữ trong lớp 
+        Tìm thứ hạng cao nhất của Nam trong lớp 
+        Tìm thứ hạng cao nhất của Nữ trong lớp
+        Tìm thứ hạng thấp nhất của Nam trong lớp 
+        Tìm thứ hạng thấp nhất của Nữ trong lớp 
+        Tìm thứ hạng cao nhất của cả lớp 
+        Tìm thứ hạng thấp nhất của cả lớp
+    */
+
 
   </script>
 </body>

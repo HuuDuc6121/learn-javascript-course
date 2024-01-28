@@ -1,0 +1,60 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Class</title>
+</head>
+<body>
+  <p>Class</p>
+
+  <script type="text/javascript">
+    class Person {
+      constructor({
+        firstName, lastName, gender
+      }) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.gender = gender;
+      }
+
+      getFullName() {
+        return this.firstName + " " + this.lastName
+      }
+
+      getGender() {
+        return this.gender
+      }
+    }
+
+    class Male extends Person {
+      constructor(gender) {
+        // const item = {
+        //   gender: 'male'
+        // }
+        super({
+          gender
+        })
+      }
+    }
+
+    class Female extends Person {
+      constructor(gender) {
+        super({
+          gender
+        })
+      }
+    }
+
+    const person = new Person('tony', 'nguyen', 'LGPT');
+    const fullName = person.getFullName();
+    console.log('fullName: ', fullName)
+
+    const male = new Male('male');
+    console.log('male: ', male.getGender())
+
+    const female = new Female('female');
+    console.log('female: ', female.getGender())
+  </script>
+</body>
+</html>
