@@ -1,0 +1,111 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Arrow function</title>
+</head>
+<body>
+  <p>Arrow function</p>
+
+  <script type="text/javascript">
+    // var getFullName; // undefiend
+
+
+    // var getFullName;
+    // traditional function: function nameFunction() {}
+    // callback function
+    // arrow function: () => {}
+    // curry function
+    // HOF (higher order function)
+
+    // anomynous function
+    function sum(x, y) {
+      return x + y;
+    }
+
+    // console.log('arrow function: ', getFullName(2, 3));
+    // will not hoisting
+    const getFullName = (x, y) => {
+      // block code logic...
+      return x + y;
+    }
+
+    // arrow not this
+    const persons = {
+      firstName: 'tony',
+      lastName: 'nguyen', // properties
+      age: 18,
+      getName: function() { // method
+        console.log('getFullName person: ', this)
+        return this.firstName + " " + this.lastName
+      },
+      getAge: () => {
+        console.log('getAge person: ', this)
+      }
+    }
+    console.log('this in function: ', persons.getName())
+    persons.getAge();
+
+    // one parameter
+    const run =  x => {
+      return x;
+    }
+
+    // body
+    const plus = (x, y, z) => x + y + z;
+    const getObject = (first, last) => ({
+      first,
+      last
+    })
+    console.log('arrow body: ', getObject('t', 'n'));
+
+
+    // curry function
+    // sum(2)(10, 20)(5) = 12;
+
+    // format traditional function
+    // function sumC(x) {
+    //   // return x + 10
+    //   return function(y, y2) {
+    //     return function(z) {
+    //       return x + y + y2 + z
+    //     }
+    //   }
+    // }
+
+    // format arrow function
+    const sumC = x => (y, y2) => z =>  x + y + y2 + z;
+
+    console.log('curry function: ', sumC(2)(10,20)(3));
+
+    // HOF
+    function applyHOFSum(func, arg) {
+      // func(arg) => sumHOF(10) -> 15
+      // func(15) => sumHOF(15) => 20
+      // return func(arg)
+      return func(func(arg))
+    };
+
+    function sumHOF(x) {
+      console.log('x: ', x)
+      return x + 5
+    };
+    console.log('HOF: ', applyHOFSum(sumHOF, 10));
+
+    // animals hof
+    const animals = [
+      { name: 'yummy', species: 'dog' },
+      { name: 'ti', species: 'cat' },
+      { name: 'tutu', species: 'fish' },
+    ];
+    const isDog = item => item.species === 'dog';
+    const animalsDogs = animals.filter(isDog)
+
+
+
+
+     
+  </script>
+</body>
+</html>
