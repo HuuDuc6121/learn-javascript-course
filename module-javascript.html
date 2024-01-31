@@ -1,0 +1,25 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>module-javascript</title>
+</head>
+<body>
+  <p>module-javascript</p>
+
+  <script type="module">
+    import { getBrowser } from './module/3rd.js';
+    import getAgeFacebook, { getBrowser as getBrowserFacebook, CONFIG } from './module/facebook.js';
+
+    const browserGoogle = getBrowser('google');
+    const fullNameFacebook = getBrowserFacebook('facebook');
+    const getAgeDefault = getAgeFacebook(10)
+
+    console.log('browserGoogle: ', browserGoogle);
+    console.log('fullNameFacebook: ', fullNameFacebook)
+    console.log('export default: ', getAgeDefault)
+    console.log('CONFIG: ', CONFIG)
+  </script>
+</body>
+</html>
