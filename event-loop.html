@@ -1,0 +1,48 @@
+<!-- Basic HTML Structure -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>event loop</title>
+</head>
+<body>
+  <p>event loop</p>
+
+  <script type="text/javascript">
+
+    /* async function 
+    - setTimout -> "todo"
+    - promise (async/await) -> "javascript"
+    */
+
+    /* 2 queue
+    - microtask queue (promise)
+    - macrotask queue (setTimeout, setInterval, I/O, requestAnimationFrame)
+    */
+
+    console.log("truong");
+    setTimeout(() => console.log("sang"),0);
+    Promise.resolve('rosie').then(value => console.log(value));
+    const p1 = new Promise(resovle => {
+      console.log('p1');
+      resovle('p1 resovle')
+    });
+    p1.then(value => console.log(value));
+    setTimeout(() => console.log("khoa"), 1000);
+    console.log("tan");
+
+    // truong -> p1 -> tan -> rosie -> p1 resovle -> sang -> khoa
+
+    // setInterval
+    // let count = 0;
+
+    // setInterval(() => {
+    //   count++;
+
+    //   console.log('count: ', count)
+    // }, 1000);
+
+
+  </script>
+</body>
+</html>

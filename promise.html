@@ -50,9 +50,11 @@
 
     // show loading
     // loading = true
+    let todo = [];
     p1
       .then(res => {
         console.log('promise p1: ', res)
+        todo.push(1)
       })
       .catch(err => {
         console.log('error promise p1: ', err)
@@ -60,6 +62,8 @@
       .finally(() => {
         // loading = false
       })
+
+      console.log(todo)
 
     function asyncP2() {
       return new Promise((resolve, reject) => {
